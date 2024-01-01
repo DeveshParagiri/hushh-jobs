@@ -1,0 +1,2 @@
+name,email,location,degree,college,skills,companies,roles,degree_year,experience
+Devesh Paragiri,devesh.paragiri@gmail.com,"San Francisco, CA",['B.S Computer Science'],['University of Maryland'],"['Python', 'Java', 'HTML+CSS+JS', 'C++', 'Flask', 'SKLearn', 'Tensorflow', 'Keras', 'Pandas', 'Numpy', 'Langchain', 'MySQL', 'PostgreSQL', 'MongoDB', 'AWS', 'Azure', 'GCP', 'Git', 'Docker', 'Postman', 'Embedded-C']","['dVerse Labs', 'GUVI', 'CollegeFit']","['Software Engineering Intern', 'Software Engineering Intern', 'Co-Founder']",2021,1.5
