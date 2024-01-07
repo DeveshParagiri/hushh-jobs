@@ -82,19 +82,18 @@ def main():
                 "experience",
             ]
             user_csv = "shortlisted.csv"
-            #write_csv(user_csv=user_csv, field_names=field_names, rows=rows)
-            write_csv(user_csv=user_csv, field_names=field_names, dict_object=dict_object)
+            write_csv(user_csv=user_csv, field_names=field_names, rows=rows)
             df = pd.read_csv(user_csv)
             st.dataframe(df)
 
 
 #def write_csv(user_csv, field_names, rows):
-def write_csv(user_csv, field_names, dict_object):
+def write_csv(user_csv, field_names, rows):
     with open(user_csv, "w") as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=field_names)
         writer.writeheader()
-        #for row in rows:
-        writer.writerow(dict_object)
+        for row in rows:
+            writer.writerow(row)
 
 
 def write_response(user_csv, response: str):
