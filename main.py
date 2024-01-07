@@ -8,6 +8,7 @@ from langchain.callbacks import get_openai_callback
 from langchain.llms import OpenAI
 from langchain.chains import LLMChain
 from langchain.prompts import PromptTemplate
+from langchain.output_parsers import PydanticOutputParser
 from template import prompt_template
 import pandas as pd
 import logging
