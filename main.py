@@ -11,6 +11,7 @@ from langchain.prompts import PromptTemplate
 from langchain.output_parsers import PydanticOutputParser
 from template import prompt_template
 import pandas as pd
+from candidate import Candidate
 import logging
 from rank import extract_and_rank
 
