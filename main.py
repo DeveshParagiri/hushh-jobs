@@ -53,17 +53,23 @@ def main():
                 doc_query = f"Return only a json based on this candidate's resume information: {resume_text}"
                 input = prompt.format_prompt(query=doc_query)
 
+                #using PydanticOutputParser for structuring language model responses into a coherent, JSON-like format.
+                parser = PydanticOutputParser(pydantic_object=Candidate)
+
                 with get_openai_callback() as cb:
                     try:
                         result = model(input.to_string())
                         st.success(result)
-                        dict_object = json.loads(result)
+                        class_object= parser.parse(result)  #using the above defined pydantic output parser to structure the response in a json-format
+                        dict_object=class_object.__dict__
+                        #dict_object = json.loads(result)
                         rows.append(dict_object)
                     except Exception as error:
                         print(error)
             field_names = [
                 "name",
                 "email",
+                "contact_number"
                 "location",
                 "degree",
                 "college",
