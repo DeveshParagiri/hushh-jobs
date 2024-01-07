@@ -8,7 +8,7 @@ from langchain.callbacks import get_openai_callback
 from langchain.llms import OpenAI
 from langchain.chains import LLMChain
 from langchain.prompts import PromptTemplate
-#from langchain.output_parsers import PydanticOutputParser
+from langchain.output_parsers import PydanticOutputParser
 from template import prompt_template
 import pandas as pd
 from candidate import Candidate
@@ -56,15 +56,15 @@ def main():
                 input = prompt.format_prompt(query=doc_query)
 
                 #using PydanticOutputParser for structuring language model responses into a coherent, JSON-like format.
-                #parser = PydanticOutputParser(pydantic_object=Candidate)
+                parser = PydanticOutputParser(pydantic_object=Candidate)
 
                 with get_openai_callback() as cb:
                     try:
                         result = model(input.to_string())
                         st.success(result)
-                        #class_object= parser.parse(result)  #using the above defined pydantic output parser to structure the response in a json-format
-                        #dict_object=class_object.__dict__
-                        dict_object = json.loads(result)
+                        class_object= parser.parse(result)  #using the above defined pydantic output parser to structure the response in a json-format
+                        dict_object=class_object.__dict__
+                        #dict_object = json.loads(result)
                         rows.append(dict_object)
                     except Exception as error:
                         print(error)
