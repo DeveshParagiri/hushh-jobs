@@ -91,8 +91,8 @@ def write_csv(user_csv, field_names, rows):
     with open(user_csv, "w") as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=field_names)
         writer.writeheader()
-        for row in rows:
-            writer.writerow(row)
+        #for row in rows:
+        writer.writerow(row)
 
 
 def write_response(user_csv, response: str):
