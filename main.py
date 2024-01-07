@@ -69,7 +69,7 @@ def main():
             field_names = [
                 "name",
                 "email",
-                "contact_number"
+                "phone"
                 "location",
                 "degree",
                 "college",
