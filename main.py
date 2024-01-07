@@ -49,7 +49,7 @@ def main():
                 resumes, job_description
             )
             print(ranked_resumes)
-            for selected_resume in ranked_resumes[:5]:
+            for selected_resume in ranked_resumes[:25]:
                 resume_text = text_bank[selected_resume[0]]
 
                 doc_query = f"Return only a json based on this candidate's resume information: {resume_text}"
